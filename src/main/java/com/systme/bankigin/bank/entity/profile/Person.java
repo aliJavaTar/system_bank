@@ -9,7 +9,6 @@ import java.sql.Date;
 @MappedSuperclass
 @Setter
 @Getter
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 

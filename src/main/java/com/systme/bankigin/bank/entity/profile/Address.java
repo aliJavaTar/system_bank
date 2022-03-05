@@ -1,12 +1,16 @@
 package com.systme.bankigin.bank.entity.profile;
 
 import com.systme.bankigin.bank.entity.base.BaseEntity;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class Address extends BaseEntity<Long> {
+@NoArgsConstructor
+@AllArgsConstructor
+public class Address {
     private static final String STREET = "street";
     private static final String ZIP_CODE = "zip_code";
     private static final String CITY = "city";
@@ -19,24 +23,6 @@ public class Address extends BaseEntity<Long> {
     private String city;
     @Column(name = STATE, nullable = false)
     private String state;
-
-    public Address() {
-    }
-
-    public Address(String street, String zipCode, String city, String state) {
-        this.street = street;
-        this.zipCode = zipCode;
-        this.city = city;
-        this.state = state;
-    }
-
-    public Address(Long id, String street, String zipCode, String city, String state) {
-        super(id);
-        this.street = street;
-        this.zipCode = zipCode;
-        this.city = city;
-        this.state = state;
-    }
 
     public String getStreet() {
         return street;
