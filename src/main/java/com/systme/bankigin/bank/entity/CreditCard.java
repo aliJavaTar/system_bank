@@ -27,8 +27,8 @@ public class CreditCard extends BaseEntity<Long> implements Serializable {
     private static final String SECOND_PASSWORD = "second_password";
 
     @Column(name = NUMBER_CARD, nullable = false, unique = true)
-
     private long numberCard;
+
     @Column(name = CVV2, nullable = false, unique = true)
     private int cvv2;
     @Column(name = EXPIRATION_DATE, nullable = false, unique = true)
