@@ -1,11 +1,20 @@
 package com.systme.bankigin.bank.entity.profile;
 
 import com.systme.bankigin.bank.entity.base.BaseEntity;
+import lombok.*;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToOne;
 import java.sql.Date;
 
 @MappedSuperclass
+@Setter
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public abstract class Person extends BaseEntity<Long> {
     private String firstname;
     private String lastname;
@@ -14,6 +23,8 @@ public abstract class Person extends BaseEntity<Long> {
     private String email;
     private String password;
     private Date birthday;
+
+    @Embedded
     private Address address;
 
 }
