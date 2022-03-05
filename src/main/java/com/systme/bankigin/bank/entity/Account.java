@@ -26,7 +26,7 @@ public class Account extends BaseEntity<Long> implements Serializable {
     private static final String MONEY = "money";
     private static final String CREATED_AT = "created_at";
     private static final String DISABLE = "is_disable";
-    private static final String ACCOUNT_TYPE="account_type";
+    private static final String ACCOUNT_TYPE = "account_type";
     @Column(name = NUMBER_ACCOUNT, nullable = false, unique = true)
     private long numberAccount;
     @Column(name = MONEY, nullable = false)
@@ -38,6 +38,7 @@ public class Account extends BaseEntity<Long> implements Serializable {
 
     @OneToOne
     private CreditCard creditCard;
+
     @Column(name = ACCOUNT_TYPE)
     private AccountType accountType;
     @OneToOne

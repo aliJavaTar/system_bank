@@ -26,7 +26,7 @@ public class BranchBank extends BaseEntity<Long> implements Serializable {
     private static final String ADDRESS = "address";
     @Column(name = NAME,nullable = false)
     private String name;
-    @Column(name = NUMBER_BRANCH)
+    @Column(name = NUMBER_BRANCH,unique = true)
     private Integer numberBranch;
     @Column(name = PHONE_NUMBER)
     private String phoneNumber;

@@ -11,6 +11,7 @@ import javax.persistence.Table;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import static com.systme.bankigin.bank.entity.Transaction.TABLE_NAME;
 
@@ -25,17 +26,18 @@ public class Transaction extends BaseEntity<Long> implements Serializable {
     private static final String TRANSACTION_TYPE = "transaction_type";
 
     @Column(name = DATE, nullable = false)
-    private LocalDate date;
+    private LocalDateTime date;
     @Column(name = MONEY_AMOUNT, nullable = false)
     private BigDecimal moneyAmount;
+
     @Column(name = TRANSACTION_TYPE)
     private TransactionType transactionType;
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
