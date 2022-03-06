@@ -14,33 +14,64 @@ import java.time.LocalDate;
 @AllArgsConstructor
 
 public abstract class Person extends BaseEntity<Long> {
+    private static final String USER_NAME = "username";
 
     private static final String FIRST_NAME = "firstname";
+
     private static final String LAST_NAME = "lastname";
+
     private static final String FATHER_NAME = "father_name";
+
     private static final String AGE = "age";
+
     private static final String EMAIL = "email";
+
     private static final String PASSWORD = "password";
+
     private static final String BIRTHDAY = "birthday";
+
     private static final String ADDRESS = "address";
 
-    @Column(name = FATHER_NAME, nullable = false)
+    @Column(name = FIRST_NAME, nullable = false)
     private String firstname;
+
     @Column(name = LAST_NAME, nullable = false)
     private String lastname;
+
     @Column(name = FATHER_NAME, nullable = false)
     private String fatherName;
+
     @Column(name = AGE, nullable = false)
     private int age;
+
+    @Column(name = USER_NAME, nullable = false)
+    private String username;
+
     @Column(name = EMAIL, nullable = false, unique = true)
     private String email;
+
     @Column(name = PASSWORD, nullable = false)
     private String password;
+
     @Column(name = BIRTHDAY, nullable = false)
     private LocalDate birthday;
 
     @Embedded
-    @Column(name = ADDRESS,nullable = false)
+    @Column(name = ADDRESS, nullable = false)
     private Address address;
 
+    @Override
+    public String toString() {
+        return "Person{" +
+                "firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", fatherName='" + fatherName + '\'' +
+                ", age=" + age +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", birthday=" + birthday +
+                ", address=" + address +
+                '}';
+    }
 }

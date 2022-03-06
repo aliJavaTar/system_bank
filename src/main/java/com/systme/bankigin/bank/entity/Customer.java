@@ -40,4 +40,12 @@ public class Customer extends Person {
     public void setAccounts(List<Account> accounts) {
         this.accounts = accounts;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "jop='" + jop + '\'' +
+                ", accounts=" + accounts +
+                '}';
+    }
 }

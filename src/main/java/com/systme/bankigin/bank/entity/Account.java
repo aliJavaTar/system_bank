@@ -44,7 +44,7 @@ public class Account extends BaseEntity<Long> implements Serializable {
     private BranchBank branchBank;
 
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "account_id")
+    @JoinColumn(name = "id")
     private List<Transaction> transactionList = new ArrayList<>();
 
     public long getNumberAccount() {
@@ -110,4 +110,5 @@ public class Account extends BaseEntity<Long> implements Serializable {
     public void setTransactionList(List<Transaction> transactionList) {
         this.transactionList = transactionList;
     }
+
 }
