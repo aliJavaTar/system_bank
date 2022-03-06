@@ -4,13 +4,12 @@ import com.systme.bankigin.bank.entity.base.BaseEntity;
 import com.systme.bankigin.bank.entity.enumeration.AccountType;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.systme.bankigin.bank.entity.Account.TABLE_NAME;
 
@@ -43,6 +42,10 @@ public class Account extends BaseEntity<Long> implements Serializable {
     private AccountType accountType;
     @OneToOne
     private BranchBank branchBank;
+
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "account_id")
+    private List<Transaction> transactionList = new ArrayList<>();
 
     public long getNumberAccount() {
         return numberAccount;
@@ -98,5 +101,13 @@ public class Account extends BaseEntity<Long> implements Serializable {
 
     public void setBranchBank(BranchBank branchBank) {
         this.branchBank = branchBank;
+    }
+
+    public List<Transaction> getTransactionList() {
+        return transactionList;
+    }
+
+    public void setTransactionList(List<Transaction> transactionList) {
+        this.transactionList = transactionList;
     }
 }

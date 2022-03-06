@@ -5,9 +5,7 @@ import com.systme.bankigin.bank.entity.enumeration.TransactionType;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -33,6 +31,10 @@ public class Transaction extends BaseEntity<Long> implements Serializable {
     @Column(name = TRANSACTION_TYPE)
     private TransactionType transactionType;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "account_id")
+    private Account account;
+
     public LocalDateTime getDate() {
         return date;
     }
@@ -55,5 +57,13 @@ public class Transaction extends BaseEntity<Long> implements Serializable {
 
     public void setTransactionType(TransactionType transactionType) {
         this.transactionType = transactionType;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 }

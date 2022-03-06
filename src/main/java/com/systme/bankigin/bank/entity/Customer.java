@@ -19,7 +19,7 @@ public class Customer extends Person {
     public static final String TABLE_NAME = "customers";
     private static final String JOP = "jop";
 
-    @Column(name = JOP)
+    @Column(name = JOP,nullable = false)
     private String jop;
 
     @OneToMany
@@ -31,5 +31,13 @@ public class Customer extends Person {
 
     public void setJop(String jop) {
         this.jop = jop;
+    }
+
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
     }
 }
