@@ -16,16 +16,14 @@ public class CustomerServiceImpl implements CustomerService {
     public CustomerServiceImpl(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
-
+    //
     @Override
     public Customer register(Customer customer) throws Exception {
         System.out.println(customer);
         boolean validate = validateInfo(customer);
         System.out.println(validate);
         if (validate) {
-            Customer save = customerRepository.save(customer);
-            System.out.println(save);
-            return save;
+            return customerRepository.save(customer);
         } else throw new Exception("Customer Not Valid");
     }
 

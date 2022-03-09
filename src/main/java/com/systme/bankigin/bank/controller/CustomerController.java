@@ -22,12 +22,3 @@ public class CustomerController {
     }
 }
 
-//        try {
-//            customer = ;
-//        } catch (Exception e) {
-//            try {
-//                throw new Exception("Customer Can Not Register");
-//            } catch (Exception ex) {
-//                System.out.println(ex.getMessage());
-//            }
-//        }

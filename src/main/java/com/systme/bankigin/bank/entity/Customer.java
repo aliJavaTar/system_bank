@@ -22,7 +22,7 @@ public class Customer extends Person {
     @Column(name = JOP,nullable = false)
     private String jop;
 
-    @OneToMany
+    @OneToMany(mappedBy = "customer")
     private List<Account> accounts;
 
     public String getJop() {
@@ -45,7 +45,7 @@ public class Customer extends Person {
     public String toString() {
         return "Customer{" +
                 "jop='" + jop + '\'' +
-                ", accounts=" + accounts +
+//                ", accounts=" + accounts +
                 '}';
     }
 }

@@ -20,12 +20,20 @@ import static com.systme.bankigin.bank.entity.Account.TABLE_NAME;
 @Builder
 @Table(name = TABLE_NAME)
 public class Account extends BaseEntity<Long> implements Serializable {
+
     public static final String TABLE_NAME = "accounts";
+
     private static final String NUMBER_ACCOUNT = "number_account";
+
     private static final String MONEY = "money";
+
     private static final String CREATED_AT = "created_at";
+
     private static final String DISABLE = "is_disable";
+
     private static final String ACCOUNT_TYPE = "account_type";
+
+
     @Column(name = NUMBER_ACCOUNT, nullable = false, unique = true)
     private long numberAccount;
     @Column(name = MONEY, nullable = false)
@@ -34,17 +42,19 @@ public class Account extends BaseEntity<Long> implements Serializable {
     private LocalDate createdAt;
     @Column(name = DISABLE, columnDefinition = ("tinyint(1) default 1"))
     private boolean isDisable;
+    @Column(name = ACCOUNT_TYPE)
+    private AccountType accountType;
 
     @OneToOne
     private CreditCard creditCard;
 
-    @Column(name = ACCOUNT_TYPE)
-    private AccountType accountType;
-    @OneToOne
+    @ManyToOne
     private BranchBank branchBank;
 
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "id")
+    @ManyToOne
+    private Customer customer;
+
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},mappedBy = "account")
     private List<Transaction> transactionList = new ArrayList<>();
 
     public long getNumberAccount() {
@@ -111,4 +121,11 @@ public class Account extends BaseEntity<Long> implements Serializable {
         this.transactionList = transactionList;
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 }
