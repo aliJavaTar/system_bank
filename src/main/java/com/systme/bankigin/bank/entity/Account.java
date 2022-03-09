@@ -2,7 +2,9 @@ package com.systme.bankigin.bank.entity;
 
 import com.systme.bankigin.bank.entity.base.BaseEntity;
 import com.systme.bankigin.bank.entity.enumeration.AccountType;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -48,6 +50,7 @@ public class Account extends BaseEntity<Long> implements Serializable {
     @OneToOne
     private CreditCard creditCard;
 
+    @Column(nullable = false)
     @ManyToOne
     private BranchBank branchBank;
 
