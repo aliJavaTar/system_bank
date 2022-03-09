@@ -34,7 +34,7 @@ public class Account extends BaseEntity<Long> implements Serializable {
     private static final String ACCOUNT_TYPE = "account_type";
 
 
-    @Column(name = NUMBER_ACCOUNT, nullable = false, unique = true)
+    @Column(name = NUMBER_ACCOUNT, nullable = false, unique = true, length = 13)
     private long numberAccount;
     @Column(name = MONEY, nullable = false)
     private BigDecimal money;
@@ -54,7 +54,7 @@ public class Account extends BaseEntity<Long> implements Serializable {
     @ManyToOne
     private Customer customer;
 
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},mappedBy = "account")
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "account")
     private List<Transaction> transactionList = new ArrayList<>();
 
     public long getNumberAccount() {

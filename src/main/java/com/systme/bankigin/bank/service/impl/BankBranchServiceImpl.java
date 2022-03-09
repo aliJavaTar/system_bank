@@ -1,4 +1,8 @@
 package com.systme.bankigin.bank.service.impl;
 
-public class BankBranchServiceImpl {
+import com.systme.bankigin.bank.service.BankBranchService;
+import org.springframework.stereotype.Service;
+
+@Service
+public class BankBranchServiceImpl implements BankBranchService {
 }
