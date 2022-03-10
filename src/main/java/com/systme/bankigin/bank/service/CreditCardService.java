@@ -5,7 +5,7 @@ import com.systme.bankigin.bank.entity.CreditCard;
 import java.util.Optional;
 
 public interface CreditCardService {
-    boolean findCreditCardByNumberCardExists();
+//    boolean findCreditCardByNumberCardExists();
 
     CreditCard createCreditCard(CreditCard creditCard);
 

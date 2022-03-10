@@ -19,6 +19,7 @@ public class AccountServiceImpl implements AccountService {
     public Account create(Account account) {
         account.setCreatedAt(LocalDate.now());
         account.setNumberAccount(getNumberAccount());
+//        account.setCustomer();
         return accountRepository.save(account);
     }
 

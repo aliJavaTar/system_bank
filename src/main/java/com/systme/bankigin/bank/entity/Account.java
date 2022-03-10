@@ -50,7 +50,7 @@ public class Account extends BaseEntity<Long> implements Serializable {
     @OneToOne
     private CreditCard creditCard;
 
-    @Column(nullable = false)
+
     @ManyToOne
     private BranchBank branchBank;
 

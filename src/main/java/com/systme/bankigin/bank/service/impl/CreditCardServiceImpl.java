@@ -15,10 +15,10 @@ public class CreditCardServiceImpl implements CreditCardService {
         this.creditCardRepository = creditCardRepository;
     }
 
-    @Override
-    public boolean findCreditCardByNumberCardExists() {
-        return creditCardRepository.findCreditCardByNumberCardExists();
-    }
+//    @Override
+//    public boolean findCreditCardByNumberCardExists() {
+//        return creditCardRepository.findCreditCardByNumberCardExists();
+//    }
 
     @Override
     public CreditCard createCreditCard(CreditCard creditCard) {

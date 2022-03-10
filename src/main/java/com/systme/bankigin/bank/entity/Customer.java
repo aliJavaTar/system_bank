@@ -45,7 +45,7 @@ public class Customer extends Person {
     public String toString() {
         return "Customer{" +
                 "jop='" + jop + '\'' +
-//                ", accounts=" + accounts +
+                ", accounts=" + accounts +
                 '}';
     }
 }
